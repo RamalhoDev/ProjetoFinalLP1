@@ -5,6 +5,7 @@ Circulo::Circulo()
 {
     setPontuacao( PONTUACAO_CIRCULO );
     setRaio( RAIO );
+    setColor( DEFAULT_COLOR_CIRCULO );
 }
 Circulo::~Circulo()
 {

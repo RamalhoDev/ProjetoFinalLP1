@@ -12,9 +12,11 @@ class Comida
 {
 public:
     Comida();
+    Comida( const cv::Scalar &color );
     virtual ~Comida();
 
     void novaComida();
+    void novaComida( const cv::Scalar &color );
 
     void desenharComida( cv::Mat &imagem, cv::Point point );
 private:

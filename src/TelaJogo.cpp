@@ -1,8 +1,6 @@
 #include "../include/TelaJogo.h"
 #include <cmath>
 
-#include <iostream>
-
 using namespace cv;
 using namespace std;
 
@@ -10,6 +8,7 @@ TelaJogo::TelaJogo()
 {
     setVertice1( Point( 0, 0 ) );
     setVertice2( Point( 0, 0 ) );
+    setColor( DEFAULT_COLOR_TELA );
 }
 TelaJogo::~TelaJogo()
 {
@@ -24,6 +23,10 @@ void TelaJogo::setVertice2( cv::Point point )
 {
     vertice2 = point;
 }
+void TelaJogo::setColor( const Scalar &color )
+{
+    this->color = color;
+}
 
 cv::Point TelaJogo::getVertice1()
 {
@@ -32,6 +35,10 @@ cv::Point TelaJogo::getVertice1()
 cv::Point TelaJogo::getVertice2()
 {
     return vertice2;
+}
+Scalar TelaJogo::getColor()
+{
+    return color;
 }
 
 void TelaJogo::desenharTela( Mat &frame, int janelaOpenCVWidth, int janelaOpenCVHeight )
@@ -43,8 +50,16 @@ void TelaJogo::desenharTela( Mat &frame, int janelaOpenCVWidth, int janelaOpenCV
     setVertice1( vertice1 );
     setVertice2( vertice2 );
 
-    rectangle( frame, vertice1, vertice2, DEFAULT_COLOR_TELA, DEFAULT_TELA_THICKNESS, DEFAULT_LINE_TYPE );
+    rectangle( frame, vertice1, vertice2, getColor(), DEFAULT_TELA_THICKNESS, DEFAULT_LINE_TYPE );
 }
+
+void TelaJogo::desenharTela( Mat &frame, int janelaOpenCVWidth, int janelaOpenCVHeight, Scalar &color )
+{
+    setColor( color );
+
+    desenharTela( frame, janelaOpenCVWidth, janelaOpenCVHeight );
+}
+
 
 // Diz se objetos estão próximos baseado na distância entre eles e na constante simbólica DISTANCIA_PROXIMA
 bool TelaJogo::detectarProximidadeObjetos( cv::Point referenciaObjeto1, cv::Point referenciaObjeto2 )
@@ -62,7 +77,7 @@ bool TelaJogo::detectarProximidadeObjetos( cv::Point referenciaObjeto1, cv::Poin
         return false;
 }
 
-cv::Point TelaJogo::gerarPontosAleatorios()
+cv::Point TelaJogo::gerarPontoAleatorio()
 {
     Point pointAleatorio;
 

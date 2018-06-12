@@ -11,7 +11,7 @@ Forma::~Forma()
 
 }
 
-void Forma::setColor( cv::Scalar color )
+void Forma::setColor( const cv::Scalar &color )
 {
     this->color = color;
 }

@@ -4,6 +4,7 @@ Retangulo::Retangulo()
     :   Forma()
 {
     setPontuacao( PONTUACAO_RETANGULO );
+    setColor( DEFAULT_COLOR_RETANGULO );
 }
 Retangulo::~Retangulo()
 {

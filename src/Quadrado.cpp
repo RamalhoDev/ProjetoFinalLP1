@@ -4,6 +4,7 @@ Quadrado::Quadrado()
     :   Retangulo()
 {
     setPontuacao( PONTUACAO_QUADRADO );
+    setColor( DEFAULT_COLOR_QUADRADO );
 }
 Quadrado::~Quadrado()
 {

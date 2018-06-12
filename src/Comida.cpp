@@ -4,6 +4,10 @@ Comida::Comida()
 {
     novaComida();
 }
+Comida::Comida( const cv::Scalar &color )
+{
+    novaComida( color );
+}
 Comida::~Comida()
 {
 
@@ -12,6 +16,12 @@ Comida::~Comida()
 void Comida::novaComida()
 {
     ptrForma = gerarComidaAleatoria();
+}
+
+void Comida::novaComida( const cv::Scalar &color )
+{
+    novaComida();
+    ptrForma->setColor( color );
 }
 
 void Comida::desenharComida( cv::Mat &imagem, cv::Point point )

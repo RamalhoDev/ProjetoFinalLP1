@@ -15,16 +15,20 @@ public:
 
     void setVertice1( cv::Point point );
     void setVertice2( cv::Point point );
+    void setColor( const cv::Scalar &color );
 
     cv::Point getVertice1();
     cv::Point getVertice2();
+    cv::Scalar getColor();
 
     void desenharTela( cv::Mat &frame, int janelaOpenCVWidth, int janelaOpenCVHeight );
+    void desenharTela( cv::Mat &frame, int janelaOpenCVWidth, int janelaOpenCVHeight, cv::Scalar &color );
     bool detectarProximidadeObjetos( cv::Point referenciaObjeto1, cv::Point referenciaObjeto2 );
-    cv::Point gerarPontosAleatorios();
+    cv::Point gerarPontoAleatorio();
 private:
     cv::Point vertice1;
     cv::Point vertice2;
+    cv::Scalar color;
 };
 
 #endif

@@ -19,7 +19,7 @@ public:
 
     virtual void desenharForma( cv::Mat &image, cv::Point point ) = 0;
 
-    void setColor( cv::Scalar color );
+    void setColor( const cv::Scalar &color );
     void setThickness( int thickness );
     void setLineType( int lineType );
 
