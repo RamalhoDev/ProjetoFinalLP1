@@ -41,7 +41,7 @@ Scalar TelaJogo::getColor()
     return color;
 }
 
-void TelaJogo::desenharTela( Mat &frame, int janelaOpenCVWidth, int janelaOpenCVHeight )
+void TelaJogo::desenharTela( Mat &frame, int janelaOpenCVHeight, int janelaOpenCVWidth )
 {
     Point vertice1( janelaOpenCVWidth*0.05, janelaOpenCVHeight*0.05 );
     Point vertice2( janelaOpenCVWidth*0.95, janelaOpenCVHeight*0.95 );
