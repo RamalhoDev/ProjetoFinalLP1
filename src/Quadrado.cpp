@@ -1,10 +1,13 @@
 #include "../include/Quadrado.h"
 
+#include <iostream>
+
 Quadrado::Quadrado()
     :   Retangulo()
 {
     setPontuacao( PONTUACAO_QUADRADO );
     setColor( DEFAULT_COLOR_QUADRADO );
+    std::cout << "oi" << getPontuacao() << std::endl;
 }
 Quadrado::~Quadrado()
 {

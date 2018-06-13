@@ -13,6 +13,14 @@ Comida::~Comida()
 
 }
 
+int Comida::getPontuacaoComida()
+{
+    // o método getPontuacao é de PontuacaoCadaTipoComida e não de Forma
+    PontuacaoCadaTipoComida *temp = ptrForma;
+
+    return temp->getPontuacao();
+}
+
 void Comida::novaComida()
 {
     ptrForma = gerarComidaAleatoria();

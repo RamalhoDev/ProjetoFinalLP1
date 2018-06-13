@@ -1,6 +1,8 @@
 #include "../include/TelaJogo.h"
 #include <cmath>
 
+#include <iostream>
+
 using namespace cv;
 using namespace std;
 
@@ -43,14 +45,14 @@ Scalar TelaJogo::getColor()
 
 void TelaJogo::desenharTela( Mat &frame, int janelaOpenCVHeight, int janelaOpenCVWidth )
 {
-    Point vertice1( janelaOpenCVWidth*0.05, janelaOpenCVHeight*0.05 );
-    Point vertice2( janelaOpenCVWidth*0.95, janelaOpenCVHeight*0.95 );
-    // Ou seja, a tela desenhada tem 90% do tamanho da janela do OpenCV
+    Point vertice1( janelaOpenCVWidth*0.1, janelaOpenCVHeight*0.1 );
+    Point vertice2( janelaOpenCVWidth*0.9, janelaOpenCVHeight*0.9 );
+    // Ou seja, a tela desenhada tem 80% do tamanho da janela do OpenCV
 
     setVertice1( vertice1 );
     setVertice2( vertice2 );
 
-    rectangle( frame, vertice1, vertice2, getColor(), DEFAULT_TELA_THICKNESS, DEFAULT_LINE_TYPE );
+    rectangle( frame, getVertice1(), getVertice2(), getColor(), DEFAULT_TELA_THICKNESS, DEFAULT_LINE_TYPE );
 }
 
 void TelaJogo::desenharTela( Mat &frame, int janelaOpenCVWidth, int janelaOpenCVHeight, Scalar &color )
@@ -87,8 +89,8 @@ cv::Point TelaJogo::gerarPontoAleatorio()
     // variáveis que definem os limites de x e y do ponto aleatório a ser gerado
     int xBegin = vertice1.x; // Pega o x do vertice1 da tela
     int yBegin = vertice1.y; // Pega o y do vertice1 da tela
-    int xEnd = vertice2.x; // Pega o x do vertice2 da tela
-    int yEnd = vertice2.y; // Pega o y do vertice2 da tela
+    int xEnd = vertice2.x - X_RETANGULO; // Pega o x do vertice2 da tela
+    int yEnd = vertice2.y - Y_QUADRADO; // Pega o y do vertice2 da tela
 
     srand( time( NULL ) );
 

@@ -15,6 +15,8 @@ public:
     Comida( const cv::Scalar &color );
     virtual ~Comida();
 
+    int getPontuacaoComida();
+
     void novaComida();
     void novaComida( const cv::Scalar &color );
 
